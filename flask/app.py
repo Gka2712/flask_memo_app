@@ -6,7 +6,7 @@ app = Flask(__name__)
 Misaka(app)
 
 
-db_uri = 'mysql+pymysql://user:user@db/memo?charset=utf8'
+db_uri = 'mysql+pymysql://user:user@mysql/memo?charset=utf8'
 app.config['SQLALCHEMY_DATABASE_URI'] = db_uri
 db = SQLAlchemy(app)
 
