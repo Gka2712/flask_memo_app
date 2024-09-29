@@ -25,6 +25,7 @@ services:
       - "5000:5000"
     volumes:
       - ./flask:/app
-
+    depends_on:
+      - db
 volumes:
  db_data:
