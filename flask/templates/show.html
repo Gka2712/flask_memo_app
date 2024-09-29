@@ -1,0 +1,9 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <h1>{{ message }}</h1>
+    <form action="/create" method="post">
+        <p>タイトル:{{post.title}}</p>
+        {{post.content}}
+        <p><a href="/">一覧に戻る</a>|<a href="/edit/{{post.id}}">編集</a>|<a href="/destroy/{{post.id}}">削除</a></p>        
+    </form>
+{% endblock %}

@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:8.0
+    container_name: mysql
+    environment:
+      MYSQL_DATABASE: memo
+      MYSQL_USER: user
+      MYSQL_PASSWORD: user
+      MYSQL_ROOT_PASSWORD: root 
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+  flask:
+    container_name: flask
+    build:
+      context: ./flask
+      dockerfile: ../docker/flask/Dockerfile
+    environment: 
+      - FLASK_ENV=development
+      - FLASK_DEBUG=1
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./flask:/app
+
+volumes:
+ db_data:
