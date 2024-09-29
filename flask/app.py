@@ -22,7 +22,7 @@ class Post(db.Model):
 @app.route('/')
 def list():
 
-    message = 'Hello paiza memo'
+    message = app
     posts = Post.query.all()
 
     return render_template('list.html', message = message, posts = posts)

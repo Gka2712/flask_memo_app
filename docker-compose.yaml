@@ -23,12 +23,14 @@ services:
       context: ./flask
       dockerfile: ../docker/flask/Dockerfile
     environment: 
+      - FLASK_APP=flask.app
       - FLASK_ENV=development
       - FLASK_DEBUG=1
     ports:
       - "5000:5000"
     volumes:
-      - ./flask:/app
+      - .:/app
+    command: flask run --host=0.0.0.0
     depends_on:
       db:
         condition: service_healthy
