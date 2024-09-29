@@ -87,5 +87,3 @@ def update_post(id):
     db.session.commit()
 
     return render_template('show.html', message = message, post = post)
-if __name__=="__main__":
-    app.run(debug=True,host="0.0.0.0",port=5000)
